@@ -1,0 +1,13 @@
+MariaDB
+
+데이터베이스:bike
+
+테이블은 코드로 만들어진다.
+테이블명 :  bikememberinfo
+
+ Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | bigint(20)   | NO   | PRI | NULL    | auto_increment |
+| email_id   | varchar(255) | YES  |     | NULL    |                |
+| first_name | varchar(255) | YES  |     | NULL    |                |
+| last_name  | varchar(255) | YES  |     | NULL    |                |
