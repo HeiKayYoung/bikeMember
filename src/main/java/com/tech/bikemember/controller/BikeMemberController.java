@@ -4,6 +4,7 @@ import com.tech.bikemember.exception.ResourceNotFoundException;
 import com.tech.bikemember.model.BikeMember;
 import com.tech.bikemember.repository.BikeMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,4 +55,15 @@ public class BikeMemberController {
 
         return ResponseEntity.ok(updateBikeMember);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<BikeMember> deleteMember(@PathVariable long id){
+        System.out.println("ResponseEntity<BikeMember> deleteBikeMember");
+        BikeMember bikeMember=bikeMemberRepository.findById(id).
+                orElseThrow(()->new ResourceNotFoundException("BikeMember not exist with id:"+id));
+        bikeMemberRepository.delete(bikeMember);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
