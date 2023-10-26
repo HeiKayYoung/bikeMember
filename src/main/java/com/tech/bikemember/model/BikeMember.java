@@ -23,4 +23,6 @@ public class BikeMember {
     private String lastName;
     @Column(name="email_id")
     private String emailId;
+    @Column(name="pass_word")
+    private String password;
 }
